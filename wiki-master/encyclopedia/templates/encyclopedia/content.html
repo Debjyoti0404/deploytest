@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+    {% if type == "list" %}
+        <h1>{{name}}</h1>
+         <ul>
+            {% for item in contents %}
+                    <li>
+                        <a href="wiki/{{ item }}">{{ item }}</a>
+                    </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        {{ contents|safe }}
+        <a href="{% url 'edit' name %}">
+            <button>Edit</button>
+        </a>
+    {% endif %}
+{% endblock %}
