@@ -41,5 +41,7 @@ def get_entry(title):
 
 def md_to_html(title):
     md_input = get_entry(title)
+    if(md_input == None):
+        return md_input
     html = markdown2.markdown(md_input)
     return html

@@ -13,6 +13,12 @@ def index(request):
 
 def default_route(request, name):
     html_content = util.md_to_html(name)
+    if(html_content == None):
+        return render(request, "encyclopedia/content.html", {
+        "name": name,
+        "type": "nonexisting_str",
+        "contents": f"The requested page '{name}' does not exist, click on create page to add this."
+    })
     return render(request, "encyclopedia/content.html", {
         "name": name,
         "type": "str",

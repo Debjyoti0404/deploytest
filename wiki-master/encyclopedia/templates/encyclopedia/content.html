@@ -14,6 +14,11 @@
                     </li>
             {% endfor %}
         </ul>
+    {% elif type == "nonexisting_str" %}
+        <h2>{{ contents|safe }}</h2>
+        <a href="{% url 'pg_create' %}">
+            <button>Create Page</button>
+        </a>
     {% else %}
         {{ contents|safe }}
         <a href="{% url 'edit' name %}">
