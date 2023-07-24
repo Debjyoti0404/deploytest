@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "encyclopedia/wsgi.py",
-        "use": "@vercel/python"
+        "src": "wiki/wsgi.py",
+        "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "encyclopedia/wsgi.py"
+            "dest": "wiki/wsgi.py"
         }
     ]
 }
